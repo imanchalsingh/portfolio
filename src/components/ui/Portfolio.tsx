@@ -124,6 +124,7 @@ const options = {
   },
 };
 const InteractiveElement: React.FC = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [selectedTestimonial, setSelectedTestimonial] =
     useState<Testimonial | null>(null);
   const [isTesDialogOpen, setIsTesDialogOpen] = useState(false);
@@ -312,48 +313,27 @@ const InteractiveElement: React.FC = () => {
       case "About":
         return (
           <div>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                flexDirection: "row",
-                padding: "20px",
-                margin: "30px",
-                height: "70vh",
-              }}
-            >
-              <div>
-                <div className="container">
+            <div className="flex flex-col lg:flex-row justify-center items-center p-5 lg:p-10 m-6 lg:m-8 lg:h-[70vh]">
+              <div className="flex justify-center items-center mb-6 lg:mb-0">
+                <div className="relative ">
                   <img
-                    style={{
-                      width: "300px",
-                      height: "300px",
-                      borderRadius: "50%",
-                      border: "5px solid darkcyan",
-                    }}
+                    className="w-48 h-48 lg:w-72 lg:h-72 rounded-full border-4 border-darkcyan"
                     src={ProfilePicture}
                     alt="Avatar"
-                    className="image"
                   />
-                  <div className="overlay">Anchal Singh</div>
+                  <div className=" overlay absolute bottom-0 left-0 right-0 text-center text-white bg-black bg-opacity-50 p-2 rounded-b-full">
+                    Anchal Singh
+                  </div>
                 </div>
               </div>
-              <div
-                style={{
-                  width: "900px",
-                  padding: "10px",
-                  marginLeft: "5rem",
-                  borderLeft: "3px solid darkcyan",
-                }}
-              >
+              <div className="lg:w-[900px] lg:ml-12 lg:pl-6 lg:border-l-4 border-darkcyan">
                 <p>
                   Hello, I'm <b>Anchal Singh</b>. Currently, an undergraduate
                   (2nd year) student in Computer Science (BCA) and Engineering
                   field! I am eager to explore new technologies to enhance my
                   skills and address various challenges effectively.
                 </p>
-                <p style={{ marginTop: "20px" }}>
+                <p className="mt-5">
                   I am looking forward to leveraging my expertise in new
                   opportunities while continuously expanding my knowledge for
                   both professional growth and personal development.
@@ -365,195 +345,109 @@ const InteractiveElement: React.FC = () => {
                 <p>
                   Always curious to explore new opportunities and challenges!
                 </p>
-                <div
-                  style={{
-                    height: "0.5px",
-                    backgroundColor: "darkcyan",
-                    marginTop: "20px",
-                  }}
-                ></div>
-                <p style={{ marginTop: "20px" }}>
+                <div className="my-5 h-px bg-darkcyan"></div>
+                <p>
                   Web Technologies: HTML, CSS, Javascript, Bootstrap, ReactJS,
                   Typescript, Material Ui, Tailwind CSS, Angular, Redux.
                 </p>
-                <hr style={{ marginTop: "10px" }}></hr>
-                <p>Programming language: Python, C/C++, Java, Nodejs.</p>
+                <hr className="my-2" />
+                <p>Programming languages: Python, C/C++, Java, Node.js.</p>
               </div>
             </div>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                marginTop: "60px",
-                color: "gray",
-              }}
-            >
+            <div className="flex justify-center items-center mt-12 text-gray-500">
               <p>&copy; 2024 Anchal Singh. All rights reserved.</p>
             </div>
           </div>
         );
       case "Projects":
         return (
-          <div>
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "1fr 1fr 1fr",
-                gap: "10px",
-                padding: "30px",
-                marginTop: "20px",
-                marginLeft: "15px",
-              }}
-            >
-              <div
-                className="container2"
-                style={{
-                  width: "450px",
-                  border: "5px solid darkcyan",
-                  borderRadius: "10px",
-                }}
-              >
+          <div className="p-8 lg:p-10 mt-5 lg:mt-10 ml-4 lg:ml-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 lg:gap-10">
+              <div className="relative w-full border-4 border-darkcyan rounded-lg overflow-hidden">
                 <img
-                  style={{ height: "200px", width: "450px" }}
+                  className="w-full h-48 object-cover transition-transform duration-300 ease-in-out transform hover:scale-105"
                   src={Jobable}
                   alt=""
-                  className="image2"
                 />
                 <a href="https://anchal-jobable.netlify.app">
-                  <div className="overlay2">
+                  <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white opacity-0 hover:opacity-100 transition-opacity duration-300 ease-in-out">
                     <div className="text2">Click Here</div>
                   </div>
                 </a>
               </div>
-              <div
-                className="container2"
-                style={{
-                  width: "450px",
-                  border: "5px solid darkcyan",
-                  borderRadius: "10px",
-                  overflow: "hidden",
-                }}
-              >
+              <div className="relative w-full border-4 border-darkcyan rounded-lg overflow-hidden">
                 <img
-                  style={{ height: "200px", width: "450px" }}
+                  className="w-full h-48 object-cover transition-transform duration-300 ease-in-out transform hover:scale-105"
                   src={TodoList}
                   alt=""
                 />
                 <a href="https://todolist-three-sigma.vercel.app">
-                  <div className="overlay2">
+                  <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white opacity-0 hover:opacity-100 transition-opacity duration-300 ease-in-out">
                     <div className="text2">Click Here</div>
                   </div>
                 </a>
               </div>
-              <div
-                className="container2"
-                style={{
-                  width: "450px",
-                  border: "5px solid darkcyan",
-                  borderRadius: "10px",
-                  overflow: "hidden",
-                }}
-              >
+              <div className="relative w-full border-4 border-darkcyan rounded-lg overflow-hidden">
                 <img
-                  style={{ height: "200px", width: "450px" }}
+                  className="w-full h-48 object-cover transition-transform duration-300 ease-in-out transform hover:scale-105"
                   src={ReactView}
                   alt=""
                 />
                 <a href="https://reactview.vercel.app">
-                  <div className="overlay2">
+                  <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white opacity-0 hover:opacity-100 transition-opacity duration-300 ease-in-out">
                     <div className="text2">Click Here</div>
                   </div>
                 </a>
               </div>
-              <div
-                className="container2"
-                style={{
-                  width: "450px",
-                  border: "5px solid darkcyan",
-                  borderRadius: "10px",
-                  overflow: "hidden",
-                }}
-              >
+              <div className="relative w-full border-4 border-darkcyan rounded-lg overflow-hidden">
                 <img
-                  style={{ height: "200px", width: "450px" }}
+                  className="w-full h-48 object-cover transition-transform duration-300 ease-in-out transform hover:scale-105"
                   src={GrammarCraft}
                   alt=""
                 />
                 <a href="https://grammar-craft.netlify.app">
-                  <div className="overlay2">
+                  <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white opacity-0 hover:opacity-100 transition-opacity duration-300 ease-in-out">
                     <div className="text2">Click Here</div>
                   </div>
                 </a>
               </div>
-              <div
-                className="container2"
-                style={{
-                  width: "450px",
-                  border: "5px solid darkcyan",
-                  borderRadius: "10px",
-                  overflow: "hidden",
-                }}
-              >
+              <div className="relative w-full border-4 border-darkcyan rounded-lg overflow-hidden">
                 <img
-                  style={{ height: "200px", width: "450px" }}
+                  className="w-full h-48 object-cover transition-transform duration-300 ease-in-out transform hover:scale-105"
                   src={OverThinker}
                   alt=""
                 />
                 <a href="https://overthinker-six.vercel.app">
-                  <div className="overlay2">
+                  <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white opacity-0 hover:opacity-100 transition-opacity duration-300 ease-in-out">
                     <div className="text2">Click Here</div>
                   </div>
                 </a>
               </div>
-              <div
-                className="container2 "
-                style={{
-                  width: "450px",
-                  border: "5px solid darkcyan",
-                  borderRadius: "10px",
-                }}
-              >
+              <div className="relative w-full border-4 border-darkcyan rounded-lg overflow-hidden">
                 <img
-                  style={{ height: "200px", width: "450px" }}
+                  className="w-full h-48 object-cover transition-transform duration-300 ease-in-out transform hover:scale-105"
                   src={Quizify}
                   alt=""
                 />
-                <a href="https://https://my-quizify.netlify.app">
-                  <div className="overlay2">
+                <a href="https://my-quizify.netlify.app">
+                  <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white opacity-0 hover:opacity-100 transition-opacity duration-300 ease-in-out">
                     <div className="text2">Click Here</div>
                   </div>
                 </a>
               </div>
             </div>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                marginTop: "80px",
-                color: "gray",
-              }}
-            >
+            <div className="flex justify-center items-center mt-20 text-gray-500">
               <p>&copy; 2024 Anchal Singh. All rights reserved.</p>
             </div>
           </div>
         );
       case "Skills":
         return (
-          <div>
-            <div style={{ width: "500px", margin: "0 auto" }}>
+          <div className="p-4 lg:p-8">
+            <div className="w-full max-w-4xl mx-auto">
               <Radar data={data} options={options} />
             </div>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                marginTop: "60px",
-                color: "gray",
-              }}
-            >
+            <div className="flex justify-center items-center mt-16 text-gray-500">
               <p>&copy; 2024 Anchal Singh. All rights reserved.</p>
             </div>
           </div>
@@ -939,14 +833,9 @@ const InteractiveElement: React.FC = () => {
                     }}
                   >
                     <img
-                      className="shadow-xl"
+                      className="shadow-xl responsive-image"
                       src={slide.src}
                       alt={slide.alt}
-                      style={{
-                        width: "700px",
-                        height: "480px",
-                        padding: "20px",
-                      }}
                     />
                   </div>
                 </div>
@@ -960,7 +849,7 @@ const InteractiveElement: React.FC = () => {
               </a>
 
               <div className="caption-container">
-                <p id="caption">{slides[slideIndex - 1].alt}</p>
+                <p id="caption">{slides[slideIndex - 1]?.alt}</p>
               </div>
 
               <div className="scrollable-container">
@@ -1192,43 +1081,113 @@ const InteractiveElement: React.FC = () => {
           alt="Logo"
         />
 
-        <div>
-          <button onClick={() => setCurrentSection("About")} className="mr-4">
-            About
-          </button>
+        <div className="relative">
           <button
-            onClick={() => setCurrentSection("Projects")}
-            className="mr-4"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="block lg:hidden px-4 py-2 text-white bg-blue-500 rounded-md focus:outline-none"
           >
-            Projects
+            Menu
           </button>
-          <button onClick={() => setCurrentSection("Skills")} className="mr-4">
-            Skills
-          </button>
-          <button onClick={() => setCurrentSection("Resume")} className="mr-4">
-            Resume
-          </button>
-          <button onClick={() => setCurrentSection("Blog")} className="mr-4">
-            Blog
-          </button>
-          <button
-            onClick={() => setCurrentSection("Testimonials")}
-            className="mr-4"
+
+          <div
+            className={`lg:hidden absolute top-full right-0 mt-2 w-48 bg-white shadow-lg rounded-md ${
+              isMenuOpen ? "block" : "hidden"
+            }`}
           >
-            Testimonials
-          </button>
-          <button
-            onClick={() => setCurrentSection("Certifications")}
-            className="mr-4"
-          >
-            Certifications
-          </button>
-          <button
-            onClick={() => setCurrentSection("Contact Me")}
-            className="mr-4"
-          >
-            Contact Me
-          </button>
+            <button
+              onClick={() => setCurrentSection("About")}
+              className="block w-full px-4 py-2 text-left hover:bg-gray-100"
+            >
+              About
+            </button>
+            <button
+              onClick={() => setCurrentSection("Projects")}
+              className="block w-full px-4 py-2 text-left hover:bg-gray-100"
+            >
+              Projects
+            </button>
+            <button
+              onClick={() => setCurrentSection("Skills")}
+              className="block w-full px-4 py-2 text-left hover:bg-gray-100"
+            >
+              Skills
+            </button>
+            <button
+              onClick={() => setCurrentSection("Resume")}
+              className="block w-full px-4 py-2 text-left hover:bg-gray-100"
+            >
+              Resume
+            </button>
+            <button
+              onClick={() => setCurrentSection("Blog")}
+              className="block w-full px-4 py-2 text-left hover:bg-gray-100"
+            >
+              Blog
+            </button>
+            <button
+              onClick={() => setCurrentSection("Testimonials")}
+              className="block w-full px-4 py-2 text-left hover:bg-gray-100"
+            >
+              Testimonials
+            </button>
+            <button
+              onClick={() => setCurrentSection("Certifications")}
+              className="block w-full px-4 py-2 text-left hover:bg-gray-100"
+            >
+              Certifications
+            </button>
+            <button
+              onClick={() => setCurrentSection("Contact Me")}
+              className="block w-full px-4 py-2 text-left hover:bg-gray-100"
+            >
+              Contact Me
+            </button>
+          </div>
+
+          <div className="hidden lg:flex">
+            <button onClick={() => setCurrentSection("About")} className="mr-4">
+              About
+            </button>
+            <button
+              onClick={() => setCurrentSection("Projects")}
+              className="mr-4"
+            >
+              Projects
+            </button>
+            <button
+              onClick={() => setCurrentSection("Skills")}
+              className="mr-4"
+            >
+              Skills
+            </button>
+            <button
+              onClick={() => setCurrentSection("Resume")}
+              className="mr-4"
+            >
+              Resume
+            </button>
+            <button onClick={() => setCurrentSection("Blog")} className="mr-4">
+              Blog
+            </button>
+            <button
+              onClick={() => setCurrentSection("Testimonials")}
+              className="mr-4"
+            >
+              Testimonials
+            </button>
+            <button
+              onClick={() => setCurrentSection("Certifications")}
+              className="mr-4"
+            >
+              Certifications
+            </button>
+            <button
+              onClick={() => setCurrentSection("Contact Me")}
+              className="mr-4"
+            >
+              Contact Me
+            </button>
+          </div>
         </div>
       </div>
       <div>{renderSection()}</div>
