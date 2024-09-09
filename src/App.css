@@ -1,0 +1,248 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  scrollbar-width: none;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+button {
+  background-color: darkcyan !important;
+}
+
+button:hover {
+  color: #f1f1f1;
+  transition: 0.4s;
+}
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  position: relative;
+  width: 50%;
+  max-width: 300px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  background: linear-gradient(to right, #aa55f49a, #ea499ab2);
+  color: #f1f1f1;
+  width: 100%;
+  transition: 0.5s ease;
+  opacity: 0;
+  color: white;
+  font-size: 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding: 20px;
+  text-align: center;
+}
+
+.container:hover .overlay {
+  opacity: 1;
+}
+
+.container2 {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 100%;
+  height: 200px;
+}
+
+.image2 {
+  display: block;
+  width: 100%;
+  height: auto;
+  height: 200px;
+  overflow: hidden;
+}
+
+.overlay2 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to right, #aa55f49a, #ea499ab2);
+  overflow: hidden;
+  height: 0;
+  transition: 0.5s ease;
+  width: 0;
+  height: 100%;
+}
+
+.container2:hover .overlay2 {
+  width: 100%;
+}
+
+.text2 {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.accordion {
+  background-color: #eee !important;
+  color: #444;
+  cursor: pointer;
+  padding: 20px;
+  width: 700px;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+  margin-top: 10px;
+  overflow: scroll;
+}
+
+.accordion:hover {
+  background: linear-gradient(to right, #aa55f49a, #ea499ab2);
+  color: black;
+}
+
+.accordion:focus {
+  background: linear-gradient(to right, #ab55f4, #ea499a) !important;
+}
+
+.active,
+.accordion:hover {
+  background-color: #ccc;
+}
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  overflow: hidden;
+  width: 700px;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+.certificate-container {
+  position: relative;
+}
+
+.mySlides {
+  display: none;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 10px;
+  margin-top: -50px;
+  background-color: darkcyan;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover,
+.next:hover {
+  background: linear-gradient(to right, #aa55f49a, #ea499ab2);
+  color: white;
+}
+
+.numbertext {
+  color: #323232;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+.caption-container {
+  text-align: center;
+  background: linear-gradient(to right, #ab55f4, #ea499a) !important;
+  padding: 2px 16px;
+  color: white;
+  margin-top: 5px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.column {
+  float: left;
+}
+
+.demo {
+  opacity: 0.5;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+.scrollable-container {
+  overflow-x: auto;
+  white-space: nowrap;
+  margin-top: 10px;
+}
+
+.slides-wrapper {
+  display: inline-flex;
+  flex-wrap: nowrap;
+}
+
+.column {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.device-warning {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+.device-warning p {
+  font-size: 1.2rem;
+  padding: 20px;
+  background: #f44336;
+  color: white;
+  border-radius: 10px;
+  max-width: 400px;
+}
