@@ -4,6 +4,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import XIcon from "@mui/icons-material/X";
 import AlternateEmailOutlinedIcon from "@mui/icons-material/AlternateEmailOutlined";
+import MenuIcon from "@mui/icons-material/Menu";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import {
   Dialog,
@@ -614,7 +615,7 @@ const InteractiveElement: React.FC = () => {
 
               <Button
                 onClick={() => setIsDialogOpen(true)}
-                className="mb-6 bg-green-500 hover:bg-green-600 text-white"
+                className="mb-6 bg-green-500 hover:bg-green-600 text-white mob-res-bg"
               >
                 <span role="img" aria-label="Plus" className="mr-2">
                   ➕
@@ -653,7 +654,7 @@ const InteractiveElement: React.FC = () => {
                   <DialogFooter>
                     <Button
                       onClick={handleSubmit}
-                      className="bg-blue-500 hover:bg-blue-600 text-white"
+                      className="bg-blue-500 hover:bg-blue-600 text-white mob-res-bg"
                     >
                       <span role="img" aria-label="Publish" className="mr-2">
                         📝
@@ -688,7 +689,7 @@ const InteractiveElement: React.FC = () => {
                         <Button
                           onClick={() => handleLike(post.id)}
                           variant="outline"
-                          className="flex items-center space-x-2 text-pink-500 hover:text-pink-600"
+                          className="flex items-center space-x-2 text-pink-500 hover:text-pink-600 mob-res-bg"
                         >
                           <span
                             role="img"
@@ -1084,61 +1085,103 @@ const InteractiveElement: React.FC = () => {
         <div className="relative">
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="block lg:hidden px-4 py-2 text-white bg-blue-500 rounded-md focus:outline-none"
+            className="block lg:hidden px-2 py-1 text-black bg-transparent rounded-md focus:outline-none border-none hover:border-none" // Removed blue background
+            style={{ borderRadius: "10px" }}
           >
-            Menu
+            <MenuIcon />
           </button>
 
           <div
-            className={`lg:hidden absolute top-full right-0 mt-2 w-48 bg-white shadow-lg rounded-md ${
+            className={`lg:hidden absolute top-full right-0 mt-2 w-48 bg-lightgray shadow-lg ${
               isMenuOpen ? "block" : "hidden"
-            }`}
+            } ${isMenuOpen ? "rounded-none" : "rounded-md"}`}
+            style={{ backgroundColor: "lightgray" }} // Set background color for the dropdown
           >
             <button
-              onClick={() => setCurrentSection("About")}
-              className="block w-full px-4 py-2 text-left hover:bg-gray-100"
+              onClick={() => {
+                setCurrentSection("About");
+                setIsMenuOpen(false);
+              }}
+              className="block w-full px-4 py-2 text-left hover:bg-gray-100 border-none hover:border-none"
+              style={{ backgroundColor: "lightgray" }}
             >
               About
             </button>
+            <hr className="border-t border-gray-300" />{" "}
+            {/* Horizontal line between buttons */}
             <button
-              onClick={() => setCurrentSection("Projects")}
-              className="block w-full px-4 py-2 text-left hover:bg-gray-100"
+              onClick={() => {
+                setCurrentSection("Projects");
+                setIsMenuOpen(false);
+              }}
+              className="block w-full px-4 py-2 text-left hover:bg-gray-100 border-none hover:border-none"
+              style={{ backgroundColor: "lightgray" }}
             >
               Projects
             </button>
+            <hr className="border-t border-gray-300" />
             <button
-              onClick={() => setCurrentSection("Skills")}
-              className="block w-full px-4 py-2 text-left hover:bg-gray-100"
+              onClick={() => {
+                setCurrentSection("Skills");
+                setIsMenuOpen(false);
+              }}
+              className="block w-full px-4 py-2 text-left hover:bg-gray-100 border-none hover:border-none"
+              style={{ backgroundColor: "lightgray" }}
             >
               Skills
             </button>
+            <hr className="border-t border-gray-300" />
             <button
-              onClick={() => setCurrentSection("Resume")}
-              className="block w-full px-4 py-2 text-left hover:bg-gray-100"
+              onClick={() => {
+                setCurrentSection("Resume");
+                setIsMenuOpen(false);
+              }}
+              className="block w-full px-4 py-2 text-left hover:bg-gray-100 border-none hover:border-none"
+              style={{ backgroundColor: "lightgray" }}
             >
               Resume
             </button>
+            <hr className="border-t border-gray-300" />
             <button
-              onClick={() => setCurrentSection("Blog")}
-              className="block w-full px-4 py-2 text-left hover:bg-gray-100"
+              onClick={() => {
+                setCurrentSection("Blog");
+                setIsMenuOpen(false);
+              }}
+              className="block w-full px-4 py-2 text-left hover:bg-gray-100 border-none hover:border-none"
+              style={{ backgroundColor: "lightgray" }}
             >
               Blog
             </button>
+            <hr className="border-t border-gray-300" />
             <button
-              onClick={() => setCurrentSection("Testimonials")}
-              className="block w-full px-4 py-2 text-left hover:bg-gray-100"
+              onClick={() => {
+                setCurrentSection("Testimonials");
+                setIsMenuOpen(false);
+              }}
+              className="block w-full px-4 py-2 text-left hover:bg-gray-100 border-none hover:border-none"
+              style={{ backgroundColor: "lightgray" }}
             >
               Testimonials
             </button>
+            <hr className="border-t border-gray-300" />
             <button
-              onClick={() => setCurrentSection("Certifications")}
-              className="block w-full px-4 py-2 text-left hover:bg-gray-100"
+              onClick={() => {
+                setCurrentSection("Certifications");
+                setIsMenuOpen(false);
+              }}
+              className="block w-full px-4 py-2 text-left hover:bg-gray-100 border-none hover:border-none"
+              style={{ backgroundColor: "lightgray" }}
             >
               Certifications
             </button>
+            <hr className="border-t border-gray-300" />
             <button
-              onClick={() => setCurrentSection("Contact Me")}
-              className="block w-full px-4 py-2 text-left hover:bg-gray-100"
+              onClick={() => {
+                setCurrentSection("Contact Me");
+                setIsMenuOpen(false);
+              }}
+              className="block w-full px-4 py-2 text-left hover:bg-gray-100 border-none hover:border-none"
+              style={{ backgroundColor: "lightgray" }}
             >
               Contact Me
             </button>
@@ -1190,6 +1233,7 @@ const InteractiveElement: React.FC = () => {
           </div>
         </div>
       </div>
+
       <div>{renderSection()}</div>
     </div>
   );

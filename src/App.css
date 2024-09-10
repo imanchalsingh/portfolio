@@ -7,7 +7,7 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 button {
-  background-color: darkcyan !important;
+  background-color: rgba(4, 164, 228, 0.735) !important;
 }
 
 button:hover {
@@ -294,5 +294,25 @@ body {
   .demo {
     width: 100px;
     height: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  button {
+    background-color: transparent !important;
+  }
+  button:hover {
+    background-color: rgba(128, 128, 128, 0.642) !important;
+    color: black !important;
+    outline: none !important;
+    
+  }
+  button:focus,
+  button:focus-visible {
+    outline: none !important;
+    color: rgb(0, 0, 0) !important;
+  }
+  .mob-res-bg{
+    background: linear-gradient(to right, #aa55f49a, #ea499ab2) !important;
   }
 }
