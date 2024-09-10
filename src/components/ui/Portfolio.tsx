@@ -778,7 +778,7 @@ const InteractiveElement: React.FC = () => {
                       </p>
                     </div>
                     <DialogFooter>
-                      <Button onClick={() => setIsTesDialogOpen(false)}>
+                      <Button className="mob-res-bg" onClick={() => setIsTesDialogOpen(false)}>
                         Close
                       </Button>
                     </DialogFooter>
