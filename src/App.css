@@ -254,7 +254,7 @@ body {
   padding: 20px;
 }
 .project-card {
-  width: 350px !important;
+  width: 400px !important;
   height: 400px;
 }
 
@@ -308,7 +308,7 @@ body {
     background-color: transparent !important;
   }
   button:hover {
-    background-color: rgba(128, 128, 128, 0.642) !important;
+    background-color: #147eac9e !important;
     color: black !important;
     outline: none !important;
     border: none;
