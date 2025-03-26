@@ -546,11 +546,15 @@ const InteractiveElement: React.FC = () => {
         return (
           <div>
             <div
-              style={{ marginTop: "20px" }}
+              style={{
+                marginTop: "20px",
+                boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)",
+                backgroundColor: "#f3f4f6",
+              }}
               className="w-full max-w-md mx-auto bg-white shadow-lg rounded-lg overflow-hidden"
             >
               <div
-                className="bg-gradient-to-r from-purple-500 to-pink-500 p-6"
+                className="bg-gradient-to-r from-[#034967] to-[#147fac] p-6"
                 style={{
                   display: "flex",
                   justifyContent: "space-between",
@@ -635,13 +639,14 @@ const InteractiveElement: React.FC = () => {
                       Name
                     </label>
                     <input
+                      style={{ backgroundColor: "#f3f4f6", padding: "10px" }}
                       type="text"
                       id="name"
                       name="name"
                       placeholder="Your Name"
                       onChange={handleContactInputChange}
                       required
-                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                      className="mt-1 block w-full rounded-md border-gray-300 shadow-lg focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                     />
                   </div>
                   <div className="mb-4">
@@ -652,13 +657,14 @@ const InteractiveElement: React.FC = () => {
                       Email
                     </label>
                     <input
+                      style={{ backgroundColor: "#f3f4f6", padding: "10px" }}
                       type="email"
                       id="email"
                       name="email"
                       placeholder="example@gmail.com"
                       onChange={handleContactInputChange}
                       required
-                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                      className="mt-1 block w-full rounded-md border-gray-300 shadow-lg focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                     />
                   </div>
                   <div className="mb-4">
@@ -669,18 +675,19 @@ const InteractiveElement: React.FC = () => {
                       Message
                     </label>
                     <textarea
+                      style={{ backgroundColor: "#f3f4f6", padding: "10px" }}
                       id="message"
                       name="message"
                       rows={4}
                       placeholder="Your message here..."
                       onChange={handleContactInputChange}
                       required
-                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                      className="mt-1 block w-full rounded-md border-gray-300 shadow-lg focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                     />
                   </div>
                   <button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold py-2 px-4 rounded-md hover:from-purple-600 hover:to-indigo-700 transition duration-300"
+                    className="w-full bg-gradient-to-r from-[#034967] to-[#147fac] text-white font-bold py-2 px-4 rounded-md hover:from-[#147fac]-600 hover:to-[#034967]-700 transition duration-300"
                   >
                     Send Message
                   </button>
