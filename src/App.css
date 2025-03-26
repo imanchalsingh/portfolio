@@ -7,7 +7,7 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 button {
-  background-color: rgba(4, 164, 228, 0.735) !important;
+  background-color: #147fac !important;
 }
 
 button:hover {
@@ -36,7 +36,7 @@ button:hover {
 .overlay {
   position: absolute;
   bottom: 0;
-  background: linear-gradient(to right, #aa55f49a, #ea499ab2);
+  background: linear-gradient(to right, #147fac, #034967);
   color: #f1f1f1;
   width: 100%;
   transition: 0.5s ease;
@@ -95,13 +95,15 @@ button:hover {
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   text-align: center;
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 .accordion {
-  background-color: #eee !important;
-  color: #444;
+  background-color: #147eac66 !important;
+  color: #2b2b2b;
   cursor: pointer;
-  padding: 20px;
+  padding: 10px;
+  padding-left: 20px;
   width: 700px;
   border: none;
   text-align: left;
@@ -109,16 +111,15 @@ button:hover {
   font-size: 15px;
   transition: 0.4s;
   margin-top: 10px;
-  overflow: scroll;
 }
 
 .accordion:hover {
-  background: linear-gradient(to right, #aa55f49a, #ea499ab2);
-  color: black;
+  background: linear-gradient(to right, #034967, #147fac) !important;
+  color: white;
 }
 
 .accordion:focus {
-  background: linear-gradient(to right, #ab55f4, #ea499a) !important;
+  background: linear-gradient(to right, #034967, #147fac) !important;
 }
 
 .active,
@@ -130,6 +131,7 @@ button:hover {
   background-color: white;
   overflow: hidden;
   width: 700px;
+  height: 600px;
 }
 
 body {
@@ -250,6 +252,10 @@ body {
   width: 700px;
   height: 480px;
   padding: 20px;
+}
+.project-card{
+  width: 350px !important;
+  height: 400px;
 }
 
 @media (max-width: 768px) {

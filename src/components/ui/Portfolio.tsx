@@ -1,4 +1,4 @@
-import { useState, useEffect, ChangeEvent, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useSpring, animated } from "@react-spring/web";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
@@ -6,35 +6,7 @@ import XIcon from "@mui/icons-material/X";
 import AlternateEmailOutlinedIcon from "@mui/icons-material/AlternateEmailOutlined";
 import MenuIcon from "@mui/icons-material/Menu";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogDescription,
-  DialogTitle,
-  DialogFooter,
-} from "../../components/ui/dialog";
-import { Alert, AlertDescription, AlertTitle } from "../../components/ui/alert";
-import { Button } from "../../components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "../../components/ui/card";
-import { Badge } from "../../components/ui/badge";
-import { Input } from "../../components/ui/input";
-import { Label } from "../../components/ui/label";
-import { Textarea } from "../../components/ui/textarea";
-import { Avatar, AvatarFallback } from "../../components/ui/avatar";
-import Logo from "./logo.jpeg";
 import ProfilePicture from "./profilephoto.jpg";
-import GrammarCraft from "./logo_of_word_grammar_craft.jpeg";
-import Jobable from "./logo_of_word_jobable.jpeg";
-import Quizify from "./logo_of_word_quizify.jpeg";
-import TodoList from "./logo_of_word_todo_list.jpeg";
-import OverThinker from "./logo_of_word_overthinker.jpeg";
-import ReactView from "./logo_of_reactview_word_reactview.jpeg";
 import Certificate1 from "./angular.jpg";
 import Certificate2 from "./csshk.png";
 import Certificate3 from "./html.jpg";
@@ -65,19 +37,6 @@ interface FormData {
   email: string;
   message: string;
 }
-interface Post {
-  id: number;
-  title: string;
-  content: string;
-  likes: number;
-}
-interface Testimonial {
-  id: number;
-  name: string;
-  role: string;
-  content: string;
-  avatar: string;
-}
 
 ChartJS.register(
   RadialLinearScale,
@@ -99,12 +58,12 @@ const data = {
     "HTML",
     "Java",
     "CSS",
-    "AngularJS",
+    "Redux",
   ],
   datasets: [
     {
       label: "Skills",
-      data: [6, 7, 5, 4, 8, 4, 7, 5, 6, 4], // skill levels
+      data: [6, 7, 5, 4, 8, 4, 7, 5, 6, 6], // skill levels
       backgroundColor: "rgba(34, 202, 236, 0.2)",
       borderColor: "darkcyan",
       borderWidth: 2,
@@ -126,9 +85,6 @@ const options = {
 };
 const InteractiveElement: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [selectedTestimonial, setSelectedTestimonial] =
-    useState<Testimonial | null>(null);
-  const [isTesDialogOpen, setIsTesDialogOpen] = useState(false);
 
   const [activeIndex, setActiveIndex] = useState<number>(0); // Set to 0 for the first accordion to open by default
 
@@ -179,14 +135,6 @@ const InteractiveElement: React.FC = () => {
     transform: isSubmitted ? "translateY(0)" : "translateY(20px)",
     config: { tension: 300, friction: 10 },
   });
-
-  const [posts, setPosts] = useState<Post[]>([]);
-  const [newPost, setNewPost] = useState<{ title: string; content: string }>({
-    title: "",
-    content: "",
-  });
-  const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
-  const [error, setError] = useState<string | null>(null);
   const [slideIndex, setSlideIndex] = useState(1);
 
   const slides = [
@@ -216,99 +164,8 @@ const InteractiveElement: React.FC = () => {
   const currentSlide = (n: number) => {
     setSlideIndex(n);
   };
-  useEffect(() => {
-    setPosts([
-      {
-        id: 1,
-        title: "The Future of AI",
-        content:
-          "The future of AI will significantly reshape industries, enhancing healthcare through advanced diagnostics, personalizing education, and enabling autonomous transportation. AI's evolution will also drive automation in workplaces, optimize decision-making in finance, and create smarter cities. As AI continues to advance, ethical considerations and regulations will play a key role in its responsible deployment.",
-        likes: 5,
-      },
-      {
-        id: 2,
-        title: "Web Development Trends",
-        content:
-          "Web development trends include the rise of Progressive Web Apps (PWAs) for enhanced user experiences, the growing use of serverless architecture for scalability, and the focus on mobile-first design. Additionally, AI integration and improved cybersecurity are shaping the future of web development.",
-        likes: 3,
-      },
-    ]);
-  }, []);
+  useEffect(() => {}, []);
 
-  const handleInputChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setNewPost({ ...newPost, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = () => {
-    if (!newPost.title || !newPost.content) {
-      setError("Please fill in both title and content.");
-      return;
-    }
-    try {
-      const newId = posts.length + 1;
-      setPosts([...posts, { id: newId, ...newPost, likes: 0 }]);
-      setNewPost({ title: "", content: "" });
-      setIsDialogOpen(false);
-      setError(null);
-    } catch (err) {
-      setError("An error occurred while creating the post. Please try again.");
-      console.log(err);
-    }
-  };
-
-  const handleLike = (id: number) => {
-    setPosts(
-      posts.map((post) =>
-        post.id === id ? { ...post, likes: post.likes + 1 } : post
-      )
-    );
-  };
-
-  const fadeIn = useSpring({
-    opacity: 1,
-    from: { opacity: 0 },
-    config: { duration: 1000 },
-  });
-
-  const testimonials: Testimonial[] = [
-    {
-      id: 1,
-      name: "Jane Doe",
-      role: "CEO, Tech Innovators",
-      content:
-        "An exceptional professional who consistently delivers high-quality work. Their innovative approach and attention to detail set them apart.",
-      avatar: "JD",
-    },
-    {
-      id: 2,
-      name: "John Smith",
-      role: "Project Manager, Creative Solutions",
-      content:
-        "Working with this individual was a pleasure. Their ability to meet deadlines and communicate effectively made our project a success.",
-      avatar: "JS",
-    },
-    {
-      id: 3,
-      name: "Emily Chen",
-      role: "Lead Designer, DesignCraft",
-      content:
-        "Their design skills are top-notch. They have a keen eye for aesthetics and user experience, making them an invaluable asset to any team.",
-      avatar: "EC",
-    },
-  ];
-
-  const handleTestimonialClick = (testimonial: Testimonial) => {
-    setSelectedTestimonial(testimonial);
-    setIsTesDialogOpen(true);
-  };
-
-  const springProps = useSpring({
-    opacity: 1,
-    from: { opacity: 0 },
-    config: { duration: 1000 },
-  });
   const renderSection = () => {
     switch (currentSection) {
       case "About":
@@ -330,9 +187,9 @@ const InteractiveElement: React.FC = () => {
               <div className="lg:w-[900px] lg:ml-12 lg:pl-6 lg:border-l-4 border-darkcyan">
                 <p>
                   Hello, I'm <b>Anchal Singh</b>. Currently, an undergraduate
-                  (2nd year) student in Computer Science (BCA) and Engineering
-                  field! I am eager to explore new technologies to enhance my
-                  skills and address various challenges effectively.
+                  student in Computer Science (BCA) and Engineering field! I am
+                  eager to explore new technologies to enhance my skills and
+                  address various challenges effectively.
                 </p>
                 <p className="mt-5">
                   I am looking forward to leveraging my expertise in new
@@ -351,12 +208,17 @@ const InteractiveElement: React.FC = () => {
                   Web Technologies: HTML, CSS, Javascript, Bootstrap, ReactJS,
                   Typescript, Material Ui, Tailwind CSS, Angular, Redux.
                 </p>
+                <p>Version Control: Git & GitHub</p>
                 <hr className="my-2" />
-                <p>Programming languages: Python, C/C++, Java, Node.js.</p>
+                <p>
+                  Programming languages: Python, C/C++, Java, Node.js,
+                  Express.js MongoDb.
+                </p>
+                <p>Testing & API: Postman.</p>
               </div>
             </div>
             <div className="flex justify-center items-center mt-12 text-gray-500">
-              <p>&copy; 2024 Anchal Singh. All rights reserved.</p>
+              <p>&copy; 2025 Anchal Singh. All rights reserved.</p>
             </div>
           </div>
         );
@@ -364,72 +226,84 @@ const InteractiveElement: React.FC = () => {
         return (
           <div className="p-8 lg:p-10 mt-5 lg:mt-10 ml-4 lg:ml-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 lg:gap-10">
-              <div className="relative w-full border-4 border-darkcyan rounded-lg overflow-hidden">
-                <img
-                  className="w-full h-48 object-cover transition-transform duration-300 ease-in-out transform hover:scale-105"
-                  src={Jobable}
-                  alt=""
-                />
+              <div className="project-card relative w-full border-4 border-darkcyan rounded-lg overflow-hidden w-[25rem] h-[12rem]">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#147fac] to-[#0c5c7e] text-center justify-center flex-col items-center text-white">
+                  <h1>Jobable</h1>
+                  <p>A job search Application</p>
+                </div>
+
                 <a href="https://anchal-jobable.netlify.app">
                   <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white opacity-0 hover:opacity-100 transition-opacity duration-300 ease-in-out">
-                    <div className="text2">Click Here</div>
+                    <div className="text2">Visit Website</div>
                   </div>
                 </a>
               </div>
-              <div className="relative w-full border-4 border-darkcyan rounded-lg overflow-hidden">
-                <img
-                  className="w-full h-48 object-cover transition-transform duration-300 ease-in-out transform hover:scale-105"
-                  src={TodoList}
-                  alt=""
-                />
+              <div className="project-card relative w-full border-4 border-darkcyan rounded-lg overflow-hidden w-[25rem] h-[12rem]">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#147fac] to-[#0c5c7e] text-center justify-center flex-col items-center text-white">
+                  <h1>ToDo List</h1>
+                  <p>A job search Application</p>
+                </div>
+
                 <a href="https://todolist-three-sigma.vercel.app">
                   <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white opacity-0 hover:opacity-100 transition-opacity duration-300 ease-in-out">
                     <div className="text2">Click Here</div>
                   </div>
                 </a>
               </div>
-              <div className="relative w-full border-4 border-darkcyan rounded-lg overflow-hidden">
-                <img
-                  className="w-full h-48 object-cover transition-transform duration-300 ease-in-out transform hover:scale-105"
-                  src={ReactView}
-                  alt=""
-                />
+              <div className="project-card relative w-full border-4 border-darkcyan rounded-lg overflow-hidden w-[25rem] h-[12rem]">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#147fac] to-[#0c5c7e] text-center justify-center flex-col items-center text-white">
+                  <h1>ReactView</h1>
+                  <p>Be a Viewer</p>
+                </div>
+
                 <a href="https://reactview.vercel.app">
                   <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white opacity-0 hover:opacity-100 transition-opacity duration-300 ease-in-out">
                     <div className="text2">Click Here</div>
                   </div>
                 </a>
               </div>
-              <div className="relative w-full border-4 border-darkcyan rounded-lg overflow-hidden">
-                <img
-                  className="w-full h-48 object-cover transition-transform duration-300 ease-in-out transform hover:scale-105"
-                  src={GrammarCraft}
-                  alt=""
-                />
+              <div className="project-card relative w-full border-4 border-darkcyan rounded-lg overflow-hidden w-[25rem] h-[12rem]">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#147fac] to-[#0c5c7e] text-center justify-center flex-col items-center text-white">
+                  <h1>Grammar</h1>
+                  <h1> Craft</h1>
+                </div>
+
                 <a href="https://grammar-craft.netlify.app">
                   <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white opacity-0 hover:opacity-100 transition-opacity duration-300 ease-in-out">
                     <div className="text2">Click Here</div>
                   </div>
                 </a>
               </div>
-              <div className="relative w-full border-4 border-darkcyan rounded-lg overflow-hidden">
-                <img
-                  className="w-full h-48 object-cover transition-transform duration-300 ease-in-out transform hover:scale-105"
-                  src={OverThinker}
-                  alt=""
-                />
+              <div className="project-card relative w-full border-4 border-darkcyan rounded-lg overflow-hidden w-[25rem] h-[12rem]">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#147fac] to-[#0c5c7e] text-center justify-center flex-col items-center text-white">
+                  <h1>Overthinker</h1>
+                  <p>Write here what you think</p>
+                </div>
+
                 <a href="https://overthinker-six.vercel.app">
                   <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white opacity-0 hover:opacity-100 transition-opacity duration-300 ease-in-out">
                     <div className="text2">Click Here</div>
                   </div>
                 </a>
               </div>
-              <div className="relative w-full border-4 border-darkcyan rounded-lg overflow-hidden">
-                <img
-                  className="w-full h-48 object-cover transition-transform duration-300 ease-in-out transform hover:scale-105"
-                  src={Quizify}
-                  alt=""
-                />
+              <div className="project-card relative w-full border-4 border-darkcyan rounded-lg overflow-hidden w-[25rem] h-[12rem]">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#147fac] to-[#0c5c7e] text-center justify-center flex-col items-center text-white">
+                  <h1>Build Stack</h1>
+                  <p>An Installation</p>
+                </div>
+
+                <a href="https://build-stack-installation-project.vercel.app/">
+                  <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white opacity-0 hover:opacity-100 transition-opacity duration-300 ease-in-out">
+                    <div className="text2">Click Here</div>
+                  </div>
+                </a>
+              </div>
+              <div className="project-card relative w-full border-4 border-darkcyan rounded-lg overflow-hidden w-[25rem] h-[12rem]">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#147fac] to-[#0c5c7e] text-center justify-center flex-col items-center text-white">
+                  <h1>Quizify</h1>
+                  <p>Be a Quiz Solver</p>
+                </div>
+
                 <a href="https://my-quizify.netlify.app">
                   <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white opacity-0 hover:opacity-100 transition-opacity duration-300 ease-in-out">
                     <div className="text2">Click Here</div>
@@ -438,7 +312,7 @@ const InteractiveElement: React.FC = () => {
               </div>
             </div>
             <div className="flex justify-center items-center mt-20 text-gray-500">
-              <p>&copy; 2024 Anchal Singh. All rights reserved.</p>
+              <p>&copy; 2025 Anchal Singh. All rights reserved.</p>
             </div>
           </div>
         );
@@ -595,215 +469,6 @@ const InteractiveElement: React.FC = () => {
                 justifyContent: "center",
                 alignItems: "center",
                 marginTop: "30px",
-                color: "gray",
-              }}
-            >
-              <p>&copy; 2024 Anchal Singh. All rights reserved.</p>
-            </div>
-          </div>
-        );
-      case "Blog":
-        return (
-          <div className="p-6 max-w-4xl mx-auto">
-            <animated.div style={fadeIn}>
-              <h1 className="text-3xl font-bold mb-6 text-center text-purple-600">
-                <span role="img" aria-label="Pencil">
-                  ✏️
-                </span>{" "}
-                Tech Blog
-              </h1>
-
-              <Button
-                onClick={() => setIsDialogOpen(true)}
-                className="mb-6 bg-green-500 hover:bg-green-600 text-white mob-res-bg"
-              >
-                <span role="img" aria-label="Plus" className="mr-2">
-                  ➕
-                </span>
-                New Post
-              </Button>
-
-              <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-                <DialogContent className="bg-white">
-                  <DialogHeader>
-                    <DialogTitle>Create New Post</DialogTitle>
-                  </DialogHeader>
-                  <div className="space-y-4">
-                    <div>
-                      <Label htmlFor="title">Title</Label>
-                      <Input
-                        id="title"
-                        name="title"
-                        value={newPost.title}
-                        onChange={handleInputChange}
-                        placeholder="Enter post title"
-                      />
-                    </div>
-                    <div>
-                      <Label htmlFor="content">Content</Label>
-                      <Textarea
-                        id="content"
-                        name="content"
-                        value={newPost.content}
-                        onChange={handleInputChange}
-                        placeholder="Write your post content here..."
-                        rows={5}
-                      />
-                    </div>
-                  </div>
-                  <DialogFooter>
-                    <Button
-                      onClick={handleSubmit}
-                      className="bg-blue-500 hover:bg-blue-600 text-white mob-res-bg"
-                    >
-                      <span role="img" aria-label="Publish" className="mr-2">
-                        📝
-                      </span>
-                      Publish
-                    </Button>
-                  </DialogFooter>
-                </DialogContent>
-              </Dialog>
-
-              {error && (
-                <Alert variant="destructive" className="mb-4">
-                  <AlertTitle>Error</AlertTitle>
-                  <AlertDescription>{error}</AlertDescription>
-                </Alert>
-              )}
-
-              <div className="space-y-6">
-                {posts.map((post) => (
-                  <Card
-                    key={post.id}
-                    className="overflow-hidden shadow-lg transition-shadow duration-300 hover:shadow-xl"
-                  >
-                    <CardHeader className="bg-gradient-to-r from-purple-500 to-pink-500 text-white">
-                      <CardTitle className="text-xl font-bold">
-                        {post.title}
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent className="p-4">
-                      <p className="text-gray-600 mb-4">{post.content}</p>
-                      <div className="flex justify-between items-center">
-                        <Button
-                          onClick={() => handleLike(post.id)}
-                          variant="outline"
-                          className="flex items-center space-x-2 text-pink-500 hover:text-pink-600 mob-res-bg"
-                        >
-                          <span
-                            role="img"
-                            aria-label="Heart"
-                            className="text-lg"
-                          >
-                            ❤️
-                          </span>
-                          <span style={{ color: "white" }}>{post.likes}</span>
-                        </Button>
-                        <Badge variant="secondary" className="text-sm">
-                          <span
-                            role="img"
-                            aria-label="Calendar"
-                            className="mr-1"
-                          >
-                            📅
-                          </span>
-                          {new Date().toLocaleDateString()}
-                        </Badge>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </animated.div>
-          </div>
-        );
-      case "Testimonials":
-        return (
-          <div>
-            <div>
-              <animated.div style={springProps} className="p-6 rounded-lg ">
-                <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">
-                  Testimonials & Recommendations
-                </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {testimonials.map((testimonial) => (
-                    <Card
-                      key={testimonial.id}
-                      className="hover:shadow-xl transition-shadow duration-300 cursor-pointer bg-gradient-to-r from-blue-100 to-purple-100"
-                      onClick={() => handleTestimonialClick(testimonial)}
-                    >
-                      <CardHeader>
-                        <div className="flex items-center space-x-4">
-                          <Avatar>
-                            <AvatarFallback className="bg-blue-500 text-white">
-                              {testimonial.avatar}
-                            </AvatarFallback>
-                          </Avatar>
-                          <div>
-                            <CardTitle className="text-lg font-semibold">
-                              {testimonial.name}
-                            </CardTitle>
-                            <p className="text-sm text-gray-600">
-                              {testimonial.role}
-                            </p>
-                          </div>
-                        </div>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-gray-700 line-clamp-3">
-                          {testimonial.content}
-                        </p>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
-
-                <Dialog
-                  open={isTesDialogOpen}
-                  onOpenChange={setIsTesDialogOpen}
-                >
-                  <DialogContent className="bg-white">
-                    <DialogHeader>
-                      <DialogTitle className="text-2xl font-bold text-gray-800">
-                        {selectedTestimonial?.name}
-                      </DialogTitle>
-                      <DialogDescription className="text-gray-600">
-                        {selectedTestimonial?.role}
-                      </DialogDescription>
-                    </DialogHeader>
-                    <div className="mt-4">
-                      <p className="text-gray-700">
-                        {selectedTestimonial?.content}
-                      </p>
-                    </div>
-                    <DialogFooter>
-                      <Button className="mob-res-bg" onClick={() => setIsTesDialogOpen(false)}>
-                        Close
-                      </Button>
-                    </DialogFooter>
-                  </DialogContent>
-                </Dialog>
-
-                <div className="mt-8 text-center">
-                  <Button
-                    className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-3 rounded-full font-semibold hover:from-blue-600 hover:to-purple-600 transition-all duration-300"
-                    onClick={() => {
-                      // Add logic to request a recommendation
-                      alert("Recommendation request sent!");
-                    }}
-                  >
-                    Request a Recommendation
-                  </Button>
-                </div>
-              </animated.div>
-            </div>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                marginTop: "200px",
                 color: "gray",
               }}
             >
@@ -991,7 +656,7 @@ const InteractiveElement: React.FC = () => {
                       id="email"
                       name="email"
                       placeholder="example@gmail.com"
-                      onChange={handleInputChange}
+                      onChange={handleContactInputChange}
                       required
                       className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                     />
@@ -1008,7 +673,7 @@ const InteractiveElement: React.FC = () => {
                       name="message"
                       rows={4}
                       placeholder="Your message here..."
-                      onChange={handleInputChange}
+                      onChange={handleContactInputChange}
                       required
                       className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                     />
@@ -1076,11 +741,7 @@ const InteractiveElement: React.FC = () => {
           borderTop: "5px solid darkcyan",
         }}
       >
-        <img
-          style={{ width: "50px", height: "50px", borderRadius: "50%" }}
-          src={Logo}
-          alt="Logo"
-        />
+        <h2 className="font-bold text-xl text-[#147fac]">PORTFOLiO</h2>
 
         <div className="relative">
           <button
@@ -1144,28 +805,6 @@ const InteractiveElement: React.FC = () => {
             <hr className="border-t border-gray-300" />
             <button
               onClick={() => {
-                setCurrentSection("Blog");
-                setIsMenuOpen(false);
-              }}
-              className="block w-full px-4 py-2 text-left hover:bg-gray-100 border-none hover:border-none"
-              style={{ backgroundColor: "lightgray" }}
-            >
-              Blog
-            </button>
-            <hr className="border-t border-gray-300" />
-            <button
-              onClick={() => {
-                setCurrentSection("Testimonials");
-                setIsMenuOpen(false);
-              }}
-              className="block w-full px-4 py-2 text-left hover:bg-gray-100 border-none hover:border-none"
-              style={{ backgroundColor: "lightgray" }}
-            >
-              Testimonials
-            </button>
-            <hr className="border-t border-gray-300" />
-            <button
-              onClick={() => {
                 setCurrentSection("Certifications");
                 setIsMenuOpen(false);
               }}
@@ -1208,15 +847,6 @@ const InteractiveElement: React.FC = () => {
               className="mr-4"
             >
               Resume
-            </button>
-            <button onClick={() => setCurrentSection("Blog")} className="mr-4">
-              Blog
-            </button>
-            <button
-              onClick={() => setCurrentSection("Testimonials")}
-              className="mr-4"
-            >
-              Testimonials
             </button>
             <button
               onClick={() => setCurrentSection("Certifications")}
