@@ -234,7 +234,7 @@ const InteractiveElement: React.FC = () => {
 
                 <a href="https://anchal-jobable.netlify.app">
                   <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white opacity-0 hover:opacity-100 transition-opacity duration-300 ease-in-out">
-                    <div className="text2">Visit Website</div>
+                    <div className="text2">Click Here</div>
                   </div>
                 </a>
               </div>
