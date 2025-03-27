@@ -54,20 +54,25 @@ const data = {
     "Python",
     "C",
     "React",
-    "C++",
+    "C/C++",
     "HTML",
     "Java",
     "CSS",
     "Redux",
+    "Node.js",
+    "Express.js",
+    "MongoDb",
+    "Bootstrap",
+    "Material Ui",
   ],
   datasets: [
     {
       label: "Skills",
-      data: [6, 7, 5, 4, 8, 4, 7, 5, 6, 6], // skill levels
-      backgroundColor: "rgba(34, 202, 236, 0.2)",
-      borderColor: "darkcyan",
+      data: [6, 7, 5, 4, 8, 4, 7, 5, 6, 6, 7, 8, 5, 4, 4], // skill levels
+      backgroundColor: "#147eac6f",
+      borderColor: "#034967",
       borderWidth: 2,
-      pointBackgroundColor: "rgba(34, 202, 236, 1)",
+      pointBackgroundColor: "#147fac",
     },
   ],
 };
@@ -173,18 +178,23 @@ const InteractiveElement: React.FC = () => {
           <div>
             <div className="flex flex-col lg:flex-row justify-center items-center p-5 lg:p-10 m-6 lg:m-8 lg:h-[70vh]">
               <div className="flex justify-center items-center mb-6 lg:mb-0">
-                <div className="relative ">
+                <div className="relative group w-48 h-48 lg:w-72 lg:h-72 rounded-full overflow-hidden border-4 border-[darkcyan]">
                   <img
-                    className="w-48 h-48 lg:w-72 lg:h-72 rounded-full border-4 border-darkcyan"
+                    className="w-full h-full object-cover rounded-full"
                     src={ProfilePicture}
                     alt="Avatar"
                   />
-                  <div className=" overlay absolute bottom-0 left-0 right-0 text-center text-white bg-black bg-opacity-50 p-2 rounded-b-full">
+                  <div
+                    className="absolute bottom-0 left-0 right-0 text-center text-white text-sm font-semibold px-3 py-3 rounded-b-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    style={{
+                      background: "linear-gradient(to right, #147fac, #034967)",
+                    }}
+                  >
                     Anchal Singh
                   </div>
                 </div>
               </div>
-              <div className="lg:w-[900px] lg:ml-12 lg:pl-6 lg:border-l-4 border-darkcyan">
+              <div className="lg:w-[900px] lg:ml-12 lg:pl-6 lg:border-l-4 border-gray">
                 <p>
                   Hello, I'm <b>Anchal Singh</b>. Currently, an undergraduate
                   student in Computer Science (BCA) and Engineering field! I am
@@ -217,9 +227,6 @@ const InteractiveElement: React.FC = () => {
                 <p>Testing & API: Postman.</p>
               </div>
             </div>
-            <div className="flex justify-center items-center mt-12 text-gray-500">
-              <p>&copy; 2025 Anchal Singh. All rights reserved.</p>
-            </div>
           </div>
         );
       case "Projects":
@@ -227,7 +234,33 @@ const InteractiveElement: React.FC = () => {
           <div className="p-8 lg:p-10 mt-5 lg:mt-10 ml-4 lg:ml-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 lg:gap-10">
               <div className="project-card relative w-full border-4 border-darkcyan rounded-lg overflow-hidden w-[25rem] h-[12rem]">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#147fac] to-[#0c5c7e] text-center justify-center flex-col items-center text-white">
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                  className="absolute inset-0 bg-gradient-to-br from-[#147fac] to-[#0c5c7e] text-center justify-center flex-col items-center text-white"
+                >
+                  <h1>MindMapX</h1>
+                  <p>Visualize Your Ideas</p>
+                </div>
+
+                <a href="https://mindmapx.vercel.app">
+                  <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white opacity-0 hover:opacity-100 transition-opacity duration-300 ease-in-out">
+                    <div className="text2">Click Here</div>
+                  </div>
+                </a>
+              </div>
+              <div className="project-card relative w-full border-4 border-darkcyan rounded-lg overflow-hidden w-[25rem] h-[12rem]">
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                  className="absolute inset-0 bg-gradient-to-br from-[#147fac] to-[#0c5c7e] text-center justify-center flex-col items-center text-white"
+                >
                   <h1>Jobable</h1>
                   <p>A job search Application</p>
                 </div>
@@ -239,9 +272,16 @@ const InteractiveElement: React.FC = () => {
                 </a>
               </div>
               <div className="project-card relative w-full border-4 border-darkcyan rounded-lg overflow-hidden w-[25rem] h-[12rem]">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#147fac] to-[#0c5c7e] text-center justify-center flex-col items-center text-white">
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                  className="absolute inset-0 bg-gradient-to-br from-[#147fac] to-[#0c5c7e] text-center justify-center flex-col items-center text-white"
+                >
                   <h1>ToDo List</h1>
-                  <p>A job search Application</p>
+                  <p>Manage Your Tasks.</p>
                 </div>
 
                 <a href="https://todolist-three-sigma.vercel.app">
@@ -251,7 +291,14 @@ const InteractiveElement: React.FC = () => {
                 </a>
               </div>
               <div className="project-card relative w-full border-4 border-darkcyan rounded-lg overflow-hidden w-[25rem] h-[12rem]">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#147fac] to-[#0c5c7e] text-center justify-center flex-col items-center text-white">
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                  className="absolute inset-0 bg-gradient-to-br from-[#147fac] to-[#0c5c7e] text-center justify-center flex-col items-center text-white"
+                >
                   <h1>ReactView</h1>
                   <p>Be a Viewer</p>
                 </div>
@@ -263,7 +310,14 @@ const InteractiveElement: React.FC = () => {
                 </a>
               </div>
               <div className="project-card relative w-full border-4 border-darkcyan rounded-lg overflow-hidden w-[25rem] h-[12rem]">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#147fac] to-[#0c5c7e] text-center justify-center flex-col items-center text-white">
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                  className="absolute inset-0 bg-gradient-to-br from-[#147fac] to-[#0c5c7e] text-center justify-center flex-col items-center text-white"
+                >
                   <h1>Grammar</h1>
                   <h1> Craft</h1>
                 </div>
@@ -275,7 +329,14 @@ const InteractiveElement: React.FC = () => {
                 </a>
               </div>
               <div className="project-card relative w-full border-4 border-darkcyan rounded-lg overflow-hidden w-[25rem] h-[12rem]">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#147fac] to-[#0c5c7e] text-center justify-center flex-col items-center text-white">
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                  className="absolute inset-0 bg-gradient-to-br from-[#147fac] to-[#0c5c7e] text-center justify-center flex-col items-center text-white"
+                >
                   <h1>Overthinker</h1>
                   <p>Write here what you think</p>
                 </div>
@@ -287,7 +348,14 @@ const InteractiveElement: React.FC = () => {
                 </a>
               </div>
               <div className="project-card relative w-full border-4 border-darkcyan rounded-lg overflow-hidden w-[25rem] h-[12rem]">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#147fac] to-[#0c5c7e] text-center justify-center flex-col items-center text-white">
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                  className="absolute inset-0 bg-gradient-to-br from-[#147fac] to-[#0c5c7e] text-center justify-center flex-col items-center text-white"
+                >
                   <h1>Build Stack</h1>
                   <p>An Installation</p>
                 </div>
@@ -299,7 +367,14 @@ const InteractiveElement: React.FC = () => {
                 </a>
               </div>
               <div className="project-card relative w-full border-4 border-darkcyan rounded-lg overflow-hidden w-[25rem] h-[12rem]">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#147fac] to-[#0c5c7e] text-center justify-center flex-col items-center text-white">
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                  className="absolute inset-0 bg-gradient-to-br from-[#147fac] to-[#0c5c7e] text-center justify-center flex-col items-center text-white"
+                >
                   <h1>Quizify</h1>
                   <p>Be a Quiz Solver</p>
                 </div>
@@ -311,19 +386,13 @@ const InteractiveElement: React.FC = () => {
                 </a>
               </div>
             </div>
-            <div className="flex justify-center items-center mt-20 text-gray-500">
-              <p>&copy; 2025 Anchal Singh. All rights reserved.</p>
-            </div>
           </div>
         );
       case "Skills":
         return (
           <div className="p-4 lg:p-8">
-            <div className="w-full max-w-4xl mx-auto">
+            <div className=" max-w-3xl mx-auto">
               <Radar data={data} options={options} />
-            </div>
-            <div className="flex justify-center items-center mt-16 text-gray-500">
-              <p>&copy; 2024 Anchal Singh. All rights reserved.</p>
             </div>
           </div>
         );
@@ -462,17 +531,6 @@ const InteractiveElement: React.FC = () => {
                   <li>UI/UX principles</li>
                 </p>
               </div>
-            </div>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                marginTop: "30px",
-                color: "gray",
-              }}
-            >
-              <p>&copy; 2024 Anchal Singh. All rights reserved.</p>
             </div>
           </div>
         );
@@ -705,17 +763,6 @@ const InteractiveElement: React.FC = () => {
                 </animated.div>
               </div>
             </div>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                marginTop: "10px",
-                color: "gray",
-              }}
-            >
-              <p>&copy; 2024 Anchal Singh. All rights reserved.</p>
-            </div>
           </div>
         );
       default:
@@ -763,7 +810,7 @@ const InteractiveElement: React.FC = () => {
             className={`lg:hidden absolute top-full right-0 mt-2 w-48 bg-lightgray shadow-lg ${
               isMenuOpen ? "block" : "hidden"
             } ${isMenuOpen ? "rounded-none" : "rounded-md"}`}
-            style={{ backgroundColor: "lightgray" }} // Set background color for the dropdown
+            style={{ backgroundColor: "lightgray" }}
           >
             <button
               onClick={() => {
@@ -872,6 +919,14 @@ const InteractiveElement: React.FC = () => {
       </div>
 
       <div>{renderSection()}</div>
+      <div
+        style={{ position: "relative" }}
+        className="flex justify-center items-center mt-16 text-gray-500"
+      >
+        <p style={{ position: "absolute", bottom: 0 }}>
+          &copy; 2025 Anchal Singh. All rights reserved.
+        </p>
+      </div>
     </div>
   );
 };

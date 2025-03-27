@@ -4,7 +4,7 @@
 
 * {
   scrollbar-width: none;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Kanit;
 }
 button {
   background-color: #147fac !important;
@@ -36,6 +36,8 @@ button:hover {
 .overlay {
   position: absolute;
   bottom: 0;
+  left: 0;
+  right: 0;
   background: linear-gradient(to right, #147fac, #034967);
   color: #f1f1f1;
   width: 100%;
@@ -46,9 +48,12 @@ button:hover {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   padding: 20px;
   text-align: center;
+  border-bottom-left-radius: 100%;
+  border-bottom-right-radius: 100%;
 }
 
-.container:hover .overlay {
+/* Hover effect */
+.group:hover .overlay {
   opacity: 1;
 }
 
@@ -229,7 +234,9 @@ body {
   display: inline-block;
   margin-right: 10px;
 }
-
+.project-card {
+  border: #034967 1px solid;
+}
 @media (max-width: 768px) {
   .accordion {
     width: 90%;
