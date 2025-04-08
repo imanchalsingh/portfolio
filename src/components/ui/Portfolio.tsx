@@ -233,7 +233,7 @@ const InteractiveElement: React.FC = () => {
         return (
           <div className="p-8 lg:p-10 mt-5 lg:mt-10 ml-4 lg:ml-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 lg:gap-10">
-              <div className="project-card relative w-full border-4 border-darkcyan rounded-lg overflow-hidden w-[25rem] h-[12rem]">
+              <div className="project-card relative border-4 border-darkcyan rounded-lg overflow-hidden w-[25rem] h-[12rem]">
                 <div
                   style={{
                     display: "flex",
@@ -252,7 +252,7 @@ const InteractiveElement: React.FC = () => {
                   </div>
                 </a>
               </div>
-              <div className="project-card relative w-full border-4 border-darkcyan rounded-lg overflow-hidden w-[25rem] h-[12rem]">
+              <div className="project-card relative border-4 border-darkcyan rounded-lg overflow-hidden w-[25rem] h-[12rem]">
                 <div
                   style={{
                     display: "flex",
@@ -265,13 +265,13 @@ const InteractiveElement: React.FC = () => {
                   <p>A job search Application</p>
                 </div>
 
-                <a href="https://anchal-jobable.netlify.app">
+                <a href="https://jobable-jobsearchapp.vercel.app/">
                   <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white opacity-0 hover:opacity-100 transition-opacity duration-300 ease-in-out">
                     <div className="text2">Click Here</div>
                   </div>
                 </a>
               </div>
-              <div className="project-card relative w-full border-4 border-darkcyan rounded-lg overflow-hidden w-[25rem] h-[12rem]">
+              <div className="project-card relative border-4 border-darkcyan rounded-lg overflow-hidden w-[25rem] h-[12rem]">
                 <div
                   style={{
                     display: "flex",
@@ -290,7 +290,7 @@ const InteractiveElement: React.FC = () => {
                   </div>
                 </a>
               </div>
-              <div className="project-card relative w-full border-4 border-darkcyan rounded-lg overflow-hidden w-[25rem] h-[12rem]">
+              <div className="project-card relative border-4 border-darkcyan rounded-lg overflow-hidden w-[25rem] h-[12rem]">
                 <div
                   style={{
                     display: "flex",
@@ -309,7 +309,7 @@ const InteractiveElement: React.FC = () => {
                   </div>
                 </a>
               </div>
-              <div className="project-card relative w-full border-4 border-darkcyan rounded-lg overflow-hidden w-[25rem] h-[12rem]">
+              <div className="project-card relative border-4 border-darkcyan rounded-lg overflow-hidden w-[25rem] h-[12rem]">
                 <div
                   style={{
                     display: "flex",
@@ -328,7 +328,7 @@ const InteractiveElement: React.FC = () => {
                   </div>
                 </a>
               </div>
-              <div className="project-card relative w-full border-4 border-darkcyan rounded-lg overflow-hidden w-[25rem] h-[12rem]">
+              <div className="project-card relative border-4 border-darkcyan rounded-lg overflow-hidden w-[25rem] h-[12rem]">
                 <div
                   style={{
                     display: "flex",
@@ -347,7 +347,7 @@ const InteractiveElement: React.FC = () => {
                   </div>
                 </a>
               </div>
-              <div className="project-card relative w-full border-4 border-darkcyan rounded-lg overflow-hidden w-[25rem] h-[12rem]">
+              <div className="project-card relative border-4 border-darkcyan rounded-lg overflow-hidden w-[25rem] h-[12rem]">
                 <div
                   style={{
                     display: "flex",
@@ -361,25 +361,6 @@ const InteractiveElement: React.FC = () => {
                 </div>
 
                 <a href="https://build-stack-installation-project.vercel.app/">
-                  <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white opacity-0 hover:opacity-100 transition-opacity duration-300 ease-in-out">
-                    <div className="text2">Click Here</div>
-                  </div>
-                </a>
-              </div>
-              <div className="project-card relative w-full border-4 border-darkcyan rounded-lg overflow-hidden w-[25rem] h-[12rem]">
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                  className="absolute inset-0 bg-gradient-to-br from-[#147fac] to-[#0c5c7e] text-center justify-center flex-col items-center text-white"
-                >
-                  <h1>Quizify</h1>
-                  <p>Be a Quiz Solver</p>
-                </div>
-
-                <a href="https://my-quizify.netlify.app">
                   <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white opacity-0 hover:opacity-100 transition-opacity duration-300 ease-in-out">
                     <div className="text2">Click Here</div>
                   </div>
