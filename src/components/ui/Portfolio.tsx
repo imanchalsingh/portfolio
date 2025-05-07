@@ -261,6 +261,25 @@ const InteractiveElement: React.FC = () => {
                   }}
                   className="absolute inset-0 bg-gradient-to-br from-[#147fac] to-[#0c5c7e] text-center justify-center flex-col items-center text-white"
                 >
+                  <h1>MathMind</h1>
+                  <p>Discover the secrets hidden in numbers.</p>
+                </div>
+
+                <a href="https://mathmind-imanchalsingh.vercel.app/">
+                  <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white opacity-0 hover:opacity-100 transition-opacity duration-300 ease-in-out">
+                    <div className="text2">Click Here</div>
+                  </div>
+                </a>
+              </div>
+              <div className="project-card relative border-4 border-darkcyan rounded-lg overflow-hidden w-[25rem] h-[12rem]">
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                  className="absolute inset-0 bg-gradient-to-br from-[#147fac] to-[#0c5c7e] text-center justify-center flex-col items-center text-white"
+                >
                   <h1>Jobable</h1>
                   <p>A job search Application</p>
                 </div>
