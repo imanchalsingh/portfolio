@@ -6,21 +6,24 @@ import XIcon from "@mui/icons-material/X";
 import AlternateEmailOutlinedIcon from "@mui/icons-material/AlternateEmailOutlined";
 import MenuIcon from "@mui/icons-material/Menu";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import ProfilePicture from "./profilephoto.jpg";
-import Certificate1 from "./angular.jpg";
-import Certificate2 from "./csshk.png";
-import Certificate3 from "./html.jpg";
-import Certificate4 from "./jssololearn.jpg";
-import Certificate5 from "./jsudemy.jpg";
-import Certificate6 from "./problemsolvinghk.png";
-import Certificate7 from "./pythonsololearn.jpg";
-import Certificate8 from "./webdev.jpg";
-import Certificate9 from "./pythonBasichk.png";
-import Certificate10 from "./udemyhtmlcssjs.png";
-import Certificate11 from "./udemyhtmlcssjschallenge.png";
-import Certificate12 from "./udemyjs20project.png";
-import Certificate13 from "./jshk.png";
-import Certificate14 from "./Reacthk.png";
+import ProfilePicture from "../certificates/profilephoto.jpg";
+import angular from "../certificates/angular.jpg";
+import csshk from "../certificates/csshk.png";
+import html from "../certificates/html.jpg";
+import jsSololearn from "../certificates/jssololearn.jpg";
+import jsudemy from "../certificates/jsudemy.jpg";
+import problemsolving from "../certificates/problemsolvinghk.png";
+import pythonsololearn from "../certificates/pythonsololearn.jpg";
+import webdev from "../certificates/webdev.jpg";
+import pythonbasichk from "../certificates/pythonBasichk.png";
+import udemyhtmlcssjs from "../certificates/udemyhtmlcssjs.png";
+import udemyhtmlcssjschallenge from "../certificates/udemyhtmlcssjschallenge.png";
+import udemyjs20project from "../certificates/udemyjs20project.png";
+import jshk from "../certificates/jshk.png";
+import ReactHK from "../certificates/Reacthk.png";
+import frontendSololearn from "../certificates/FrontendSololearn.png";
+import htmlCN from "../certificates/FundamentalhtmlCN.png";
+import cppSololearn from "../certificates/CppSololearn.png";
 import { Radar } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -100,9 +103,8 @@ const InteractiveElement: React.FC = () => {
     | "About"
     | "Projects"
     | "Skills"
+    | "Experience"
     | "Resume"
-    | "Blog"
-    | "Testimonials"
     | "Certifications"
     | "Contact Me"
   >("About");
@@ -143,20 +145,23 @@ const InteractiveElement: React.FC = () => {
   const [slideIndex, setSlideIndex] = useState(1);
 
   const slides = [
-    { src: Certificate1, alt: "Angular" },
-    { src: Certificate2, alt: "Css Basic" },
-    { src: Certificate3, alt: "Html" },
-    { src: Certificate10, alt: "Html CSS JS" },
-    { src: Certificate8, alt: "Web Development" },
-    { src: Certificate5, alt: "JavaScript Course" },
-    { src: Certificate6, alt: "Problem Solving" },
-    { src: Certificate4, alt: "Javascript" },
-    { src: Certificate12, alt: "Html css javascript." },
-    { src: Certificate7, alt: "Python" },
-    { src: Certificate14, alt: "React Basic." },
-    { src: Certificate9, alt: "Python Basic" },
-    { src: Certificate11, alt: "Challenge Project" },
-    { src: Certificate13, alt: "Javascript Basic." },
+    { src: htmlCN, alt: "Fundamentals of html from Coding ninjas" },
+    { src: angular, alt: "Angular" },
+    { src: csshk, alt: "Css Basic" },
+    { src: html, alt: "Html" },
+    { src: udemyhtmlcssjs, alt: "Html CSS JS" },
+    { src: webdev, alt: "Web Development" },
+    { src: jsudemy, alt: "JavaScript Course" },
+    { src: problemsolving, alt: "Problem Solving" },
+    { src: jsSololearn, alt: "Javascript" },
+    { src: udemyjs20project, alt: "Html css javascript." },
+    { src: pythonsololearn, alt: "Python" },
+    { src: ReactHK, alt: "React Basic." },
+    { src: pythonbasichk, alt: "Python Basic" },
+    { src: udemyhtmlcssjschallenge, alt: "Challenge Project" },
+    { src: jshk, alt: "Javascript Basic." },
+    { src: frontendSololearn, alt: "Frontend for beginner" },
+    { src: cppSololearn, alt: "Introduction to c++" },
   ];
 
   const showSlides = (n: number) => {
@@ -299,63 +304,6 @@ const InteractiveElement: React.FC = () => {
                   }}
                   className="absolute inset-0 bg-gradient-to-br from-[#147fac] to-[#0c5c7e] text-center justify-center flex-col items-center text-white"
                 >
-                  <h1>ToDo List</h1>
-                  <p>Manage Your Tasks.</p>
-                </div>
-
-                <a href="https://todolist-three-sigma.vercel.app">
-                  <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white opacity-0 hover:opacity-100 transition-opacity duration-300 ease-in-out">
-                    <div className="text2">Click Here</div>
-                  </div>
-                </a>
-              </div>
-              <div className="project-card relative border-4 border-darkcyan rounded-lg overflow-hidden w-[25rem] h-[12rem]">
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                  className="absolute inset-0 bg-gradient-to-br from-[#147fac] to-[#0c5c7e] text-center justify-center flex-col items-center text-white"
-                >
-                  <h1>ReactView</h1>
-                  <p>Be a Viewer</p>
-                </div>
-
-                <a href="https://reactview.vercel.app">
-                  <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white opacity-0 hover:opacity-100 transition-opacity duration-300 ease-in-out">
-                    <div className="text2">Click Here</div>
-                  </div>
-                </a>
-              </div>
-              <div className="project-card relative border-4 border-darkcyan rounded-lg overflow-hidden w-[25rem] h-[12rem]">
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                  className="absolute inset-0 bg-gradient-to-br from-[#147fac] to-[#0c5c7e] text-center justify-center flex-col items-center text-white"
-                >
-                  <h1>Grammar</h1>
-                  <h1> Craft</h1>
-                </div>
-
-                <a href="https://grammar-craft.netlify.app">
-                  <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white opacity-0 hover:opacity-100 transition-opacity duration-300 ease-in-out">
-                    <div className="text2">Click Here</div>
-                  </div>
-                </a>
-              </div>
-              <div className="project-card relative border-4 border-darkcyan rounded-lg overflow-hidden w-[25rem] h-[12rem]">
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                  className="absolute inset-0 bg-gradient-to-br from-[#147fac] to-[#0c5c7e] text-center justify-center flex-col items-center text-white"
-                >
                   <h1>Overthinker</h1>
                   <p>Write here what you think</p>
                 </div>
@@ -393,6 +341,43 @@ const InteractiveElement: React.FC = () => {
           <div className="p-4 lg:p-8">
             <div className=" max-w-3xl mx-auto">
               <Radar data={data} options={options} />
+            </div>
+          </div>
+        );
+      case "Experience":
+        return (
+          <div className="max-w-5xl mx-auto px-6">
+            <div className="bg-white shadow-md rounded-2xl p-6 hover:shadow-xl transition duration-300">
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-900">
+                    Web Developer Intern
+                  </h3>
+                  <p className="text-gray-600">CodSoft</p>
+                  <p className="text-sm text-gray-500">
+                    Sept 5, 2025 – Present
+                  </p>
+                </div>
+
+                <span className="mt-4 md:mt-0 inline-block bg-blue-100 text-blue-600 text-sm font-medium px-4 py-1 rounded-full">
+                  Internship
+                </span>
+              </div>
+
+              <ul className="mt-6 list-disc list-inside space-y-2 text-gray-700">
+                <li>
+                  Building and optimizing responsive web applications with
+                  modern technologies (React, Tailwind, JavaScript).
+                </li>
+                <li>
+                  Collaborating with team members to implement UI/UX
+                  improvements and ensure mobile-first design.
+                </li>
+                <li>
+                  Working on real-world projects to enhance performance,
+                  accessibility, and user experience.
+                </li>
+              </ul>
             </div>
           </div>
         );
@@ -848,6 +833,17 @@ const InteractiveElement: React.FC = () => {
             <hr className="border-t border-gray-300" />
             <button
               onClick={() => {
+                setCurrentSection("Experience");
+                setIsMenuOpen(false);
+              }}
+              className="block w-full px-4 py-2 text-left hover:bg-gray-100 border-none hover:border-none"
+              style={{ backgroundColor: "lightgray" }}
+            >
+              Experience
+            </button>
+            <hr className="border-t border-gray-300" />
+            <button
+              onClick={() => {
                 setCurrentSection("Resume");
                 setIsMenuOpen(false);
               }}
@@ -895,6 +891,12 @@ const InteractiveElement: React.FC = () => {
               className="mr-4"
             >
               Skills
+            </button>
+            <button
+              onClick={() => setCurrentSection("Experience")}
+              className="mr-4"
+            >
+              Experience
             </button>
             <button
               onClick={() => setCurrentSection("Resume")}
